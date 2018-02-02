@@ -1,0 +1,25 @@
+{
+  "name": "bateriasmoura",
+  "authors": [
+    "Silvia Morais <silvinhamorais@gmail.com>"
+  ],
+  "description": "lista baterias moura",
+  "main": "",
+  "keywords": [
+    "baterias",
+    "moura"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "angular": "^1.6.8"
+  }
+}

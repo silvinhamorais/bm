@@ -1,0 +1,68 @@
+<html ng-app="mouraApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista Baterias Moura</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dirPagination.js"></script>
+    <script src="js/angular-google-maps.min.js"></script>
+    <script src="js/services/distribuidorAPI.js"></script>
+    <script src="js/controllers/distribuidorController.js"></script>
+    <script src="js/controllers/mapaController.js"></script>
+
+</head>
+<body ng-controller="distribuidorCtrl">
+
+    <div class="container">
+        <div class="col-12">
+
+            <div class="logo">
+                  <img src="images/logo.png"> 
+            </div>
+           <!-- <button ng-click=""><span>Carregar</span></button>-->
+
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label>Procure por um distribuidor:</label>
+                <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+            </div>
+        </form>
+
+
+         <div class="table-responsive tabela-movimentacao">
+             <table class="table table-striped">
+                <tr>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                </tr>
+                <tr dir-paginate="distribuidor in lista.distribuidores|itemsPerPage:8|filter:procurar">
+                    <td>{{distribuidor.nome}}</td>
+                    <td><span>{{distribuidor.endereco.logradouro}} {{distribuidor.endereco.numero}} {{distribuidor.endereco.complemento}}</span><br>
+                    <span>CEP: {{distribuidor.endereco.cep}} {{distribuidor.endereco.bairro}} {{distribuidor.endereco.cidade}}</span><br>
+                    <span>{{distribuidor.endereco.cidade}} {{distribuidor.endereco.uf}} {{distribuidor.endereco.pais}}</span></td>
+                    <td><p ng-repeat="email in distribuidor.email">{{email}}</p></td>
+                    <td><p ng-repeat="telefone in distribuidor.telefone">{{telefone}}</p></td>
+                </tr>
+            </table>
+        </div>
+            <div class="paginacao">
+                <dir-pagination-controls max-size="5" boundary-links="true"></dir-pagination-controls>
+            </div>
+
+            <div id="map_canvas" ng-controller="mainCtrl">
+               <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                     <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+               </ui-gmap-marker>
+            </ui-gmap-google-map>
+         </div>
+        </div>
+   </div>
+</body>
+</html>
