@@ -4,7 +4,7 @@ body{
 	font-size: 14px;
 }
 
-.container{
+.conteudo{
 	background: #fff;
 }
 
@@ -47,4 +47,30 @@ body{
 
 label{
 	margin-right: 20px;
+}
+
+#map {
+	height: 100%;
+}
+.notification {
+	position: absolute;
+	z-index: 100;
+	bottom: 30px;
+	left: 50%;
+	width: 80%;
+	padding: 10px 2%;
+	margin-left: -42%;
+
+	background: #0a3b8c;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+
+	border: 1px solid #ffe013;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	box-shadow: 0 0 10px rgba(0,0,0,.3);
 }

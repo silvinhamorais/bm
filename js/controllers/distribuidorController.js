@@ -8,6 +8,11 @@ angular.module('mouraApp').controller("distribuidorCtrl", function($scope, distr
         }).error(function () {
             console.log("Deu Erro.")
         });
+
+        $scope.ordenar = function(keyname){
+        $scope.sortKey = keyname;
+        $scope.reverse = !$scope.reverse;
+    	};
         
     //}
 });
